@@ -189,6 +189,7 @@ class FlutterForegroundTask {
         notificationIcon: notificationIcon,
         notificationButtons: notificationButtons,
         callback: callback,
+        progress: progress,
       );
 
       return ServiceRequestResult.success();
