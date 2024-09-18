@@ -36,6 +36,7 @@ object PreferencesKey {
     const val NOTIFICATION_CONTENT_TEXT = "notificationContentText"
     const val NOTIFICATION_CONTENT_ICON = "iconData"
     const val NOTIFICATION_CONTENT_BUTTONS = "buttons"
+    const val NOTIFICATION_CONTENT_PROGRESS = "progress"
 
     // task options
     const val FOREGROUND_TASK_OPTIONS_PREFS = prefix + "FOREGROUND_TASK_OPTIONS"

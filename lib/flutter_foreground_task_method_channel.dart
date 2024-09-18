@@ -77,6 +77,7 @@ class MethodChannelFlutterForegroundTask extends FlutterForegroundTaskPlatform {
     NotificationIconData? notificationIcon,
     List<NotificationButton>? notificationButtons,
     Function? callback,
+    int? progress,
   }) async {
     final Map<String, dynamic> options = {
       if (foregroundTaskOptions != null) ...foregroundTaskOptions.toJson(),

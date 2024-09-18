@@ -9,7 +9,8 @@ data class NotificationContent(
     val title: String,
     val text: String,
     val icon: NotificationIconData?,
-    val buttons: List<NotificationButton>
+    val buttons: List<NotificationButton>,
+    val progress: Int,
 ) {
     companion object {
         fun getData(context: Context): NotificationContent {
@@ -18,6 +19,7 @@ data class NotificationContent(
 
             val title = prefs.getString(PrefsKey.NOTIFICATION_CONTENT_TITLE, null) ?: ""
             val text = prefs.getString(PrefsKey.NOTIFICATION_CONTENT_TEXT, null) ?: ""
+            val progress = prefs.getInt(PrefsKey.NOTIFICATION_CONTENT_PROGRESS, 0)
 
             val iconJsonString = prefs.getString(PrefsKey.NOTIFICATION_CONTENT_ICON, null)
             var icon: NotificationIconData? = null
@@ -39,7 +41,8 @@ data class NotificationContent(
                 title = title,
                 text = text,
                 icon = icon,
-                buttons = buttons
+                buttons = buttons,
+                progress = progress,
             )
         }
 
@@ -49,6 +52,7 @@ data class NotificationContent(
 
             val title = map?.get(PrefsKey.NOTIFICATION_CONTENT_TITLE) as? String ?: ""
             val text = map?.get(PrefsKey.NOTIFICATION_CONTENT_TEXT) as? String ?: ""
+            val progress = prefs.getInt(PrefsKey.NOTIFICATION_CONTENT_PROGRESS, 0)
 
             val iconJson = map?.get(PrefsKey.NOTIFICATION_CONTENT_ICON) as? Map<*, *>
             var iconJsonString: String? = null
@@ -67,6 +71,7 @@ data class NotificationContent(
                 putString(PrefsKey.NOTIFICATION_CONTENT_TEXT, text)
                 putString(PrefsKey.NOTIFICATION_CONTENT_ICON, iconJsonString)
                 putString(PrefsKey.NOTIFICATION_CONTENT_BUTTONS, buttonsJsonString)
+                putInt(PrefsKey.NOTIFICATION_CONTENT_PROGRESS, progress)
                 commit()
             }
         }
@@ -77,6 +82,7 @@ data class NotificationContent(
 
             val title = map?.get(PrefsKey.NOTIFICATION_CONTENT_TITLE) as? String
             val text = map?.get(PrefsKey.NOTIFICATION_CONTENT_TEXT) as? String
+            val progress = map?.get(PrefsKey.NOTIFICATION_CONTENT_PROGRESS) as? Int
 
             val iconJson = map?.get(PrefsKey.NOTIFICATION_CONTENT_ICON) as? Map<*, *>
             var iconJsonString: String? = null
@@ -93,6 +99,7 @@ data class NotificationContent(
             with(prefs.edit()) {
                 title?.let { putString(PrefsKey.NOTIFICATION_CONTENT_TITLE, it) }
                 text?.let { putString(PrefsKey.NOTIFICATION_CONTENT_TEXT, it) }
+                progress?.let { putInt(PrefsKey.NOTIFICATION_CONTENT_PROGRESS, it) }
                 iconJsonString?.let { putString(PrefsKey.NOTIFICATION_CONTENT_ICON, it) }
                 buttonsJsonString?.let { putString(PrefsKey.NOTIFICATION_CONTENT_BUTTONS, it) }
                 commit()

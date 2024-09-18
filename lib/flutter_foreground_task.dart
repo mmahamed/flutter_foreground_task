@@ -175,6 +175,7 @@ class FlutterForegroundTask {
     NotificationIconData? notificationIcon,
     List<NotificationButton>? notificationButtons,
     Function? callback,
+    int? progress,
   }) async {
     try {
       if (!(await isRunningService)) {
