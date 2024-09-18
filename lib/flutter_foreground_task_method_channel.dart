@@ -53,7 +53,7 @@ class MethodChannelFlutterForegroundTask extends FlutterForegroundTaskPlatform {
       'notificationContentTitle': notificationTitle,
       'notificationContentText': notificationText,
       'iconData': notificationIcon?.toJson(),
-      'buttons': notificationButtons?.map((e) => e.toJson()).toList()
+      'buttons': notificationButtons?.map((e) => e.toJson()).toList(),
     };
 
     if (callback != null) {
@@ -84,7 +84,8 @@ class MethodChannelFlutterForegroundTask extends FlutterForegroundTaskPlatform {
       'notificationContentTitle': notificationTitle,
       'notificationContentText': notificationText,
       'iconData': notificationIcon?.toJson(),
-      'buttons': notificationButtons?.map((e) => e.toJson()).toList()
+      'buttons': notificationButtons?.map((e) => e.toJson()).toList(),
+      'progress': progress,
     };
 
     if (callback != null) {
