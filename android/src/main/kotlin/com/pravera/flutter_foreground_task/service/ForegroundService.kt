@@ -340,6 +340,7 @@ class ForegroundService : Service(), MethodChannel.MethodCallHandler {
             builder.setContentText(notificationContent.text)
             builder.style = Notification.BigTextStyle()
             builder.setVisibility(notificationOptions.visibility)
+            Log.d("PROGRESS", notificationContent.progress.toString())
             builder.setProgress(100,notificationContent.progress,false)
             if (iconBackgroundColor != null) {
                 builder.setColor(iconBackgroundColor)
@@ -367,6 +368,8 @@ class ForegroundService : Service(), MethodChannel.MethodCallHandler {
             builder.setContentText(notificationContent.text)
             builder.setStyle(NotificationCompat.BigTextStyle().bigText(notificationContent.text))
             builder.setVisibility(notificationOptions.visibility)
+            Log.d("PROGRESS", notificationContent.progress.toString())
+            builder.setProgress(100,notificationContent.progress,false)
             if (iconBackgroundColor != null) {
                 builder.color = iconBackgroundColor
             }
